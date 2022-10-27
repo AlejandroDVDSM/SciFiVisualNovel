@@ -10,7 +10,7 @@ position: -17,-271
   -> *Ignorar su aviso y seguir durmiendo*
     <<jump Captain_Sleep>>
 <<else>>
-  Mordin: Deja que le lleve.
+  Mordin: Deja que te lleve.
 <<endif>>
 ===
 
