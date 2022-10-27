@@ -3,9 +3,11 @@ tags:
 position: -17,-271
 ---
 <<if visited("Start") is false>>
+  <<setsprite Ashley Happy>>
   Tú: Zzz...
   ???: ¡Capitán! ¡Despierte, tenemos una urgencia!
   -> *Despertarse*
+    <<setsprite Ashley Angry>>
     <<jump Captain_Awake>>
   -> *Ignorar su aviso y seguir durmiendo*
     <<jump Captain_Sleep>>
