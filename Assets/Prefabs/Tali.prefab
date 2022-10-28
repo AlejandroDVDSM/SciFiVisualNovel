@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7796372843643276782}
   - component: {fileID: 5790157789323546273}
+  - component: {fileID: -3229825190698213910}
   m_Layer: 0
   m_Name: Tali
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,3 +85,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3229825190698213910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4911638073254346368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeb5c95cc73fac40af9c696c0b8877e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - name: Angry
+    sprite: {fileID: 21300000, guid: f3132b0c932b39d4999d39d3b9242077, type: 3}
+  - name: Happy
+    sprite: {fileID: 21300000, guid: 22bfbea4c805ea74e8c30d2a31eebded, type: 3}
+  - name: Neutral
+    sprite: {fileID: 21300000, guid: 4ef8336f373735c4289f611da4858152, type: 3}
+  - name: Sad
+    sprite: {fileID: 21300000, guid: c7c9ce3645afaf941af02329f4cb9c26, type: 3}
+  - name: Scared
+    sprite: {fileID: 21300000, guid: 457481f2607d5cb499bd5a342399a108, type: 3}
+  - name: Surprised
+    sprite: {fileID: 21300000, guid: 2f6812a8e667e624fa64732528b43c46, type: 3}
+  - name: Unkown
+    sprite: {fileID: 21300000, guid: df33b01fd927a424c886e781d07fb504, type: 3}

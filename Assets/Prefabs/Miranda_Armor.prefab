@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6263887477183168629}
   - component: {fileID: 1498345752326648570}
+  - component: {fileID: -343356959543382980}
   m_Layer: 0
   m_Name: Miranda_Armor
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,3 +85,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-343356959543382980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67632744892439907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeb5c95cc73fac40af9c696c0b8877e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - name: Angry
+    sprite: {fileID: 21300000, guid: d0b247b2d502628458483e86ec00a18a, type: 3}
+  - name: Happy
+    sprite: {fileID: 21300000, guid: 68136372f8b01ff4dab5188fc9661dd5, type: 3}
+  - name: Neutral
+    sprite: {fileID: 21300000, guid: 3c213dd2a6f9464468900d61931f3502, type: 3}
+  - name: Sad
+    sprite: {fileID: 21300000, guid: 762a692f186198248836f80965b143db, type: 3}
+  - name: Scared
+    sprite: {fileID: 21300000, guid: 8ba1ac13ffbfbf745823ba3c4508ea30, type: 3}
+  - name: Surprised
+    sprite: {fileID: 21300000, guid: 57f8e8ec34bad6241bf71f3455b8a3f3, type: 3}
