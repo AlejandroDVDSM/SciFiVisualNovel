@@ -2,7 +2,7 @@
 tags:
 position: -17,-271
 ---
-<<if visited("Start") is false>>
+<<if !visited("Start")>>
   <<setsprite Background CaptainRoom>>
   Tú: Zzz...
   <<place SpawnManager Mordin right>>
@@ -14,6 +14,7 @@ position: -17,-271
     <<jump Captain_Sleep>>
 <<else>>
   <<setsprite Mordin Neutral>>
+  <<setsprite Captain Neutral>>
   Mordin: Deja que te lleve.
 <<endif>>
 <<jump Legion_Corpse>>
@@ -28,6 +29,7 @@ position: -221,-155
 Tú: ¿Mordin? Si es sobre la avería del tanque de hidrógeno de peróxido, hubiese sido mejor despertar a Tali y no a mi.
 <<setsprite Mordin Scared>>
 Mordin: Ojalá fuese una avería...
+<<set $player_knows_who_died to false>>
 <<jump Start>>
 ===
 
@@ -36,7 +38,9 @@ tags:
 position: 181,-160
 ---
 Tú: Zzz...
-Mordin: ¡Kaidan ha encontrado a Legión... muerto!.
+Mordin: ¡Kaidan ha encontrado a Legión...! 
+Mordin: ¡Muerto!
+<<set $player_knows_who_died to true>>
 <<place SpawnManager Captain left>>
 <<setsprite Captain Surprised>>
 Tú: ¿¡Cómo dices, Mordin!?
@@ -45,12 +49,4 @@ Mordin: Legión.
 Mordin: Muerto.
 Mordin: Espabila, coño.
 <<jump Start>>
-===
-
-title: Legion_Corpse
-tags:
----
-<<setsprite Background Corpse>>
-<<destroy SpawnManager Mordin>>
-
 ===

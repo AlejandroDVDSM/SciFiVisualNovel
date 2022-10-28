@@ -1,0 +1,118 @@
+﻿title: Legion_Corpse
+tags:
+---
+<<setsprite Background Corpse>>
+
+<<if !$player_knows_cat>>
+  <<destroy SpawnManager Captain>>
+  <<destroy SpawnManager Mordin>>
+  <<place SpawnManager Mordin left>>
+  <<place SpawnManager Kaidan right>>
+  <<setsprite Kaidan Unknown>>
+  ???: ...
+  Mordin: Kaidan, cuéntale lo que me has contado al capitán.
+  <<setsprite Kaidan Sad>>
+  Kaidan: ...
+  <<destroy SpawnManager Mordin>>
+  <<place SpawnManager Captain left>>
+  -> *Presionar a Kaidan para que cuente lo sucedido*
+    <<jump Kaidan_Tells_Story>>
+  -> *Escuchar lo sucedido por parte de Mordin*
+    <<jump Mordin_Tells_Story>>
+<<else>>
+  <<place SpawnManager Captain left>>
+  <<setsprite Captain Surprised>>
+  Tú: ¿Y el resto de la tripulación?
+  Tú: "TERMINAR DE DESARROLLAR ESTO"
+<<endif>>
+===
+
+title: Kaidan_Tells_Story
+tags: 
+---
+<<if !$player_knows_who_died>>
+  <<jump Player_Recognizes_Corpse>>
+<<endif>>
+
+<<setsprite Captain Angry>>
+Tú: ¡Kaidan, pies en tierra! ¿¡Qué es lo que ha pasado!?
+<<setsprite Kaidan Scared>>
+Kaidan: Señor...
+<<setsprite Captain Neutral>>
+Kaidan: He ido a por un café porque no soy persona hasta que me tome uno y de camino a la cocina me he encontrado a Legión ahí...
+Kaidan: Muerto...
+<<setsprite Kaidan Sad>>
+Kaidan: Me he quedado paralizado hasta que Mordin apareció.
+<<setsprite Kaidan Surprised>>
+Kaidan: Lo más extraño de todo es que me pareció ver una figura alejándose del cadáver, pero no pude apreciarlo bien.
+???: *Suena algo de fondo*
+<<setsprite Captain Surprised>>
+<<setsprite Kaidan Scared>>
+Tú: ¿Qué ha sido eso?
+<<jump Cat_Appearance>>
+===
+
+title: Mordin_Tells_Story
+tags: 
+---
+<<if !$player_knows_who_died>>
+  <<setsprite Captain Sad>>
+  Tú: Parece que está en shock... 
+  <<jump Player_Recognizes_Corpse>>
+<<endif>>
+
+Tú: Será mejor que me lo cuentes tú, Mordin.
+<<destroy SpawnManager Kaidan>>
+<<place SpawnManager Mordin right>>
+Mordin: Kaidan se dirigía a la cocina cuando de camino se encontró el cadáver de Legión.
+Mordin: Poco tiempo después, llegué y me contó que vio una figura extraña alejarse del cadáver.
+<<jump Cat_Appearance>>
+===
+
+title: Player_Recognizes_Corpse
+tags:
+---
+  <<setsprite Captain Sad>>
+  Tú: Joder... el cadáver es Legión.
+  <<set $player_knows_who_died to true>>
+  Tú: Justo hace dos semanas celebrábamos que hacía un año con nosotros en la tripulación.
+  <<setsprite Captain Angry>>
+  Tú: ¡Era su puta primera misión de exploración fuera de la colonia de "Palaven"!
+  <<setsprite Captain Neutral>>
+  Tú: Bueno... mejor un androide de última generación que uno de nosotros, ¿no?
+
+  <<if visited("Kaidan_Tells_Story")>>
+    <<jump Kaidan_Tells_Story>>
+  <<elseif visited("Mordin_Tells_Story")>>
+    <<jump Mordin_Tells_Story>>
+  <<endif>>
+===
+
+title: Cat_Appearance
+tags:
+---
+<<destroy SpawnManager Captain>>
+<<place SpawnManager McFlurry left>>
+<<setsprite McFlurry Unknown>>
+<<set $player_knows_cat to true>>
+???: miau miau miau \[No me maten, tengo que pulir esto\]
+
+<<if visited("Kaidan_Tells_Story")>> 
+  <<setsprite Kaidan Happy>>
+  Kaidan: Con todo lo que está pasando me he olvidado de McFlurry.
+  <<setsprite McFlurry Neutral>>
+  Kaidan: ¿Sabes? Seguramente la figura que no llegué a apreciar bien fuese él.
+  <<setsprite Kaidan Neutral>>
+<<elseif visited("Mordin_Tells_Story")>>
+  <<setsprite Mordin Surprised>>
+  Mordin: ¿McFlurry? Pensé que estaría en el dormitorio de Kaidan.
+  <<setsprite McFlurry Neutral>>
+  Mordin: ¿Sabes? Seguramente la figura que Kaidan no apreció bien fuese la del gato.
+  <<setsprite Mordin Neutral>>
+<<endif>>
+<<setsprite McFlurry Happy>>
+McFlurry: miau miau miau miau \[Más sonidos de gato\]
+<<destroy SpawnManager McFlurry>>
+
+<<jump Legion_Corpse>>
+===
