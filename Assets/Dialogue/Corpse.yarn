@@ -39,7 +39,7 @@ Tú: ¡Kaidan, pies en tierra! ¿¡Qué es lo que ha pasado!?
 <<setsprite Kaidan Scared>>
 Kaidan: Señor...
 <<setsprite Captain Neutral>>
-Kaidan: He ido a por un café porque no soy persona hasta que me tome uno y de camino a la cocina me he encontrado a Legión ahí...
+Kaidan: He ido a por un café porque no soy persona hasta que me tomo uno y de camino a la cocina me he encontrado a Legión ahí...
 Kaidan: Muerto...
 <<setsprite Kaidan Sad>>
 Kaidan: Me he quedado paralizado hasta que Mordin apareció.
@@ -77,7 +77,7 @@ tags:
   <<set $player_knows_who_died to true>>
   Tú: Justo hace dos semanas celebrábamos que hacía un año con nosotros en la tripulación.
   <<setsprite Captain Angry>>
-  Tú: ¡Era su puta primera misión de exploración fuera de la colonia de "Palaven"!
+  Tú: ¡Era su primera misión de exploración fuera de la colonia de "Palaven"!
   <<setsprite Captain Neutral>>
   Tú: Bueno... mejor un androide de última generación que uno de nosotros, ¿no?
 
