@@ -12,6 +12,7 @@ position: -17,-271
     <<jump Captain_Awake>>
   -> *Ignorar su aviso y seguir durmiendo*
     <<jump Captain_Sleep>>
+  -> test
 <<else>>
   <<setsprite Mordin Neutral>>
   <<setsprite Captain Neutral>>
