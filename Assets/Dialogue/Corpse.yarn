@@ -2,7 +2,6 @@
 tags:
 ---
 <<setsprite Background Corpse>>
-
 <<if !$player_knows_cat>>
   <<destroy SpawnManager Captain>>
   <<destroy SpawnManager Mordin>>
@@ -10,6 +9,7 @@ tags:
   <<place SpawnManager Kaidan right>>
   <<setsprite Kaidan Unknown>>
   ???: ...
+  <<fadein Panel>>
   Mordin: Kaidan, cuéntale lo que me has contado al capitán.
   <<setsprite Kaidan Sad>>
   Kaidan: ...
