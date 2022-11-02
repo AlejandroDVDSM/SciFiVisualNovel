@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //Play("MainTheme");
+        Play("MainTheme");
     }
 
     [YarnCommand("play")]

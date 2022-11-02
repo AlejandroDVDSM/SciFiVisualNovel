@@ -1,7 +1,9 @@
 ﻿title: Legion_Corpse
 tags:
+position: -6,-385
 ---
 <<setsprite Background Corpse>>
+
 <<if !$player_knows_cat>>
   <<destroy SpawnManager Captain>>
   <<destroy SpawnManager Mordin>>
@@ -25,12 +27,26 @@ tags:
   <<place SpawnManager Captain left>>
   <<setsprite Captain Surprised>>
   Tú: ¿Y el resto de la tripulación?
-  Tú: "TERMINAR DE DESARROLLAR ESTO"
+  <<setsprite Captain Neutral>>
+
+  <<if visited("Kaidan_Tells_Story")>>
+    <<destroy SpawnManager Kaidan>>
+    <<place SpawnManager Mordin right>>
+  <<endif>>
+
+  Mordin: Seguirán durmiendo. Creo que debemos convocar una reunión y contarles.
+  -> *Mantener oculto la muerte de Legión*
+    <<jump Hide_Death>>
+  -> *Convocar una reunión y contar todo al resto de la tripulación*
+    <<jump Dont_Hide_Death>>
 <<endif>>
+
+
 ===
 
 title: Kaidan_Tells_Story
 tags: 
+position: -296,-242
 ---
 <<if !$player_knows_who_died>>
   <<jump Player_Recognizes_Corpse>>
@@ -52,6 +68,7 @@ Kaidan: Lo más extraño de todo es que me pareció ver una figura alejándose d
 
 title: Mordin_Tells_Story
 tags: 
+position: 282,-244
 ---
 <<if !$player_knows_who_died>>
   <<setsprite Captain Sad>>
@@ -69,13 +86,14 @@ Mordin: Poco tiempo después, llegué y me contó que vio una figura extraña al
 
 title: Player_Recognizes_Corpse
 tags:
+position: -3,-41
 ---
   <<setsprite Captain Sad>>
   Tú: Joder... el cadáver es Legión.
   <<set $player_knows_who_died to true>>
-  Tú: Justo hace dos semanas celebrábamos que hacía un año con nosotros en la tripulación.
+  Tú: Justo hace dos semanas celebrábamos que hacía su primer mes con nosotros en la tripulación.
   <<setsprite Captain Angry>>
-  Tú: ¡Era su primera misión de exploración fuera de la colonia de "Palaven"!
+  Tú: Era su primera misión de exploración fuera de la colonia de "Palaven".
   <<setsprite Captain Neutral>>
   Tú: Bueno... mejor un androide de última generación que uno de nosotros, ¿no?
 
@@ -88,10 +106,12 @@ tags:
 
 title: Cat_Appearance
 tags:
+position: -5,-242
 ---
 <<play AudioManager Noises>>
 ???: *Suena algo de fondo*
 <<setsprite Captain Surprised>>
+
 <<if visited("Kaidan_Tells_Story")>>
   <<setsprite Kaidan Scared>>
 <<elseif visited("Mordin_Tells_Story")>>
@@ -119,10 +139,78 @@ Tú: ¿Qué ha sido eso?
   Mordin: ¿Sabes? Seguramente la figura que Kaidan no apreció bien fuese la del gato.
   <<setsprite Mordin Neutral>>
 <<endif>>
+
 <<setsprite McFlurry Happy>>
 <<play AudioManager Cat>>
 McFlurry: miau miau miau miau \[Más sonidos de gato\]
 <<destroy SpawnManager McFlurry>>
 
 <<jump Legion_Corpse>>
+===
+
+title: Hide_Death
+tags:
+position: 211,-541
+---
+Tú: Por ahora, no creo que debamos contarle a nadie lo sucedido.
+<<set $crew_knows_legion_status to false>>
+<<setsprite Mordin Angry>>
+Mordin: ¿¡Qué!?
+<<destroy SpawnManager Captain>>
+<<place SpawnManager Kaidan left>>
+Kaidan: En realidad...
+Kaidan: Creo que sería lo más sensato.
+Mordin: No me creo que se os esté pasando si quiera por la cabeza todo esto...
+Mordin: ¿Del capitán? Bueno, podría creérmelo...
+<<setsprite Mordin Sad>>
+Mordin: ¿Pero de ti, Kaidan? Ni siquiera pareces el mismo de siempre.
+<<setsprite Kaidan Sad>>
+<<setsprite Mordin Neutral>>
+Modin: En fin, la cadena de mando es la cadena de mando así que no me queda de otra que seguir las órdenes.
+<<destroy SpawnManager Kaidan>>
+<<place SpawnManager Captain left>>
+Tú: Mordin, si las palabras son de plata, el silencio es de oro.
+<<jump Choose_Destination>>
+===
+
+title: Dont_Hide_Death
+tags:
+position: -238,-543
+---
+Tú: Creo que lo más sensato sería que todos en la nave lo supiesen.
+<<set $crew_knows_legion_status to true>>
+<<setsprite Mordin Happy>>
+Mordin: Concuerdo.
+<<destroy SpawnManager Mordin>>
+<<place SpawnManager Kaidan right>>
+Kaidan: ¿Estás seguro? Lo único que conseguiremos con esto es que cunda el pánico.
+Kaidan: Quiero decir...
+Kaidan: Legión ya está muerto, ¿de qué va a servir contarles?
+<<destroy SpawnManager Captain>>
+<<place SpawnManager Mordin left>>
+<<setsprite Mordin Angry>>
+Mordin: ¿Se puede saber qué cojones estás diciendo? No pareces tú mismo. Estás fuera de tus cabales.
+<<setsprite Kaidan Sad>>
+Kaidan: ...
+<<jump Choose_Destination>>
+===
+
+title: Choose_Destination
+tags:
+position: -18,-673
+---
+<<if visited("Dont_Hide_Death")>>
+  <<destroy SpawnManager Mordin>>
+  <<destroy SpawnManager Kaidan>>
+  <<place SpawnManager Captain left>>
+  <<place SpawnManager Mordin right>>
+<<endif>>
+
+Mordin: Señor, aún queda el asunto de la misión.
+Tú: ¿Qué pasa? La Marina nos envió a Tuchanka para seguir explorando lo que la tripulación de la Normandía fue incapaz.
+Mordin: Creo que deberíamos suspenderlo temporalmente para volver a Palaven y analizar la caja negra de Legión.
+-> *Suspender la misión para volver a Palaven*
+  NOTA: SEGUIR DESARROLLANDO
+-> *Continuar hacia Tuchanka*
+  NOTA: SEGUIR DESARROLLANDO
 ===
