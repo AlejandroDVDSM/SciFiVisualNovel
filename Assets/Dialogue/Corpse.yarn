@@ -16,8 +16,10 @@ tags:
   <<destroy SpawnManager Mordin>>
   <<place SpawnManager Captain left>>
   -> *Presionar a Kaidan para que cuente lo sucedido*
+    <<play AudioManager Click>>
     <<jump Kaidan_Tells_Story>>
   -> *Escuchar lo sucedido por parte de Mordin*
+    <<play AudioManager Click>>
     <<jump Mordin_Tells_Story>>
 <<else>>
   <<place SpawnManager Captain left>>
@@ -45,10 +47,6 @@ Kaidan: Muerto...
 Kaidan: Me he quedado paralizado hasta que Mordin apareció.
 <<setsprite Kaidan Surprised>>
 Kaidan: Lo más extraño de todo es que me pareció ver una figura alejándose del cadáver, pero no pude apreciarlo bien.
-???: *Suena algo de fondo*
-<<setsprite Captain Surprised>>
-<<setsprite Kaidan Scared>>
-Tú: ¿Qué ha sido eso?
 <<jump Cat_Appearance>>
 ===
 
@@ -91,10 +89,21 @@ tags:
 title: Cat_Appearance
 tags:
 ---
+<<play AudioManager Noises>>
+???: *Suena algo de fondo*
+<<setsprite Captain Surprised>>
+<<if visited("Kaidan_Tells_Story")>>
+  <<setsprite Kaidan Scared>>
+<<elseif visited("Mordin_Tells_Story")>>
+  <<setsprite Mordin Scared>>
+<<endif>>
+
+Tú: ¿Qué ha sido eso?
 <<destroy SpawnManager Captain>>
 <<place SpawnManager McFlurry left>>
 <<setsprite McFlurry Unknown>>
 <<set $player_knows_cat to true>>
+<<play AudioManager Cat>>
 ???: miau miau miau \[No me maten, tengo que pulir esto\]
 
 <<if visited("Kaidan_Tells_Story")>> 
@@ -105,12 +114,13 @@ tags:
   <<setsprite Kaidan Neutral>>
 <<elseif visited("Mordin_Tells_Story")>>
   <<setsprite Mordin Surprised>>
-  Mordin: ¿McFlurry? Pensé que estaría en el dormitorio de Kaidan.
   <<setsprite McFlurry Neutral>>
+  Mordin: ¿McFlurry? Pensé que estaría en el dormitorio de Kaidan.
   Mordin: ¿Sabes? Seguramente la figura que Kaidan no apreció bien fuese la del gato.
   <<setsprite Mordin Neutral>>
 <<endif>>
 <<setsprite McFlurry Happy>>
+<<play AudioManager Cat>>
 McFlurry: miau miau miau miau \[Más sonidos de gato\]
 <<destroy SpawnManager McFlurry>>
 

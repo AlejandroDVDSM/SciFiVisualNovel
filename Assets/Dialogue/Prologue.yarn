@@ -9,8 +9,10 @@ position: -17,-271
   <<setsprite Mordin Unknown>>
   ???: ¡Capitán! ¡Despierte, tenemos una urgencia!
   -> *Despertarse*
+    <<play AudioManager Click>>
     <<jump Captain_Awake>>
   -> *Ignorar su aviso y seguir durmiendo*
+    <<play AudioManager Click>>
     <<jump Captain_Sleep>>
 <<else>>
   <<setsprite Mordin Neutral>>
