@@ -17,7 +17,7 @@ position: -6,-385
   Kaidan: ...
   <<destroy SpawnManager Mordin>>
   <<place SpawnManager Captain left>>
-  -> *Presionar a Kaidan para que cuente lo sucedido*
+  -> *Insistir a Kaidan*
     <<play AudioManager Click>>
     <<jump Kaidan_Tells_Story>>
   -> *Escuchar lo sucedido por parte de Mordin*
@@ -37,7 +37,7 @@ position: -6,-385
   Mordin: Seguirán durmiendo. Creo que debemos convocar una reunión y contarles.
   -> *Mantener oculto la muerte de Legión*
     <<jump Hide_Death>>
-  -> *Convocar una reunión y contar todo al resto de la tripulación*
+  -> *Contar todo al resto de la tripulación*
     <<jump Dont_Hide_Death>>
 <<endif>>
 
@@ -124,7 +124,7 @@ Tú: ¿Qué ha sido eso?
 <<setsprite McFlurry Unknown>>
 <<set $player_knows_cat to true>>
 <<play AudioManager Cat>>
-???: miau miau miau \[No me maten, tengo que pulir esto\]
+???: Miau
 
 <<if visited("Kaidan_Tells_Story")>> 
   <<setsprite Kaidan Happy>>
@@ -142,7 +142,7 @@ Tú: ¿Qué ha sido eso?
 
 <<setsprite McFlurry Happy>>
 <<play AudioManager Cat>>
-McFlurry: miau miau miau miau \[Más sonidos de gato\]
+McFlurry: Miau
 <<destroy SpawnManager McFlurry>>
 
 <<jump Legion_Corpse>>
@@ -210,7 +210,43 @@ Mordin: Señor, aún queda el asunto de la misión.
 Tú: ¿Qué pasa? La Marina nos envió a Tuchanka para seguir explorando lo que la tripulación de la Normandía fue incapaz.
 Mordin: Creo que deberíamos suspenderlo temporalmente para volver a Palaven y analizar la caja negra de Legión.
 -> *Suspender la misión para volver a Palaven*
-  NOTA: SEGUIR DESARROLLANDO
+  <<set $destination to "Palaven">>
+  <<if $crew_knows_legion_status == true>>
+    <<fadeout Panel>>
+    Tú: Convoquemos ya la reunión y contémosle a todos lo de Legión y el cambio de rumbo.
+    <<jump Reunion>>
+  <<else>>
+    Tú: Hablaré con la teniente de vuelo para que fije rumbo a Palaven.
+    <<jump Mordin_Insist>>
+  <<endif>>
 -> *Continuar hacia Tuchanka*
-  NOTA: SEGUIR DESARROLLANDO
+  <<set $destination to "Tuchanka">>
+  <<if $crew_knows_legion_status == true>>
+    <<fadeout Panel>>
+    Tú: Convoquemos ya la reunión y contémosle a todos lo de Legión.
+    <<jump Reunion>>
+  <<else>>
+    Tú: Deberíamos acabar la misión.
+    <<jump Mordin_Insist>>
+  <<endif>>
+===
+
+title: Mordin_Insist
+tags:
+---
+  Mordin: Señor, se que accedió a ocultar la muerte de Legión por ahora pero...
+  <<setsprite Mordin Surprised>>
+  Mordin: ¿Podría al menos contárselo a Miranda? La jefa de seguridad debería saber lo sucedido.
+  -> *Contárselo a Miranda*
+    <<set $miranda_knows_legion_status to true>>
+    <<setsprite Mordin Happy>>
+    <<fadeout Panel>>
+    Tú: Es lo que había pensado.
+    <<jump Reunion>>
+  -> *Ocultárselo a Miranda*
+    <<set $miranda_knows_legion_status to true>>
+    <<setsprite Mordin Sad>>
+    <<setsprite Captain Angry>>
+    NOTA: SEGUIR DESARROLLANDO
+
 ===

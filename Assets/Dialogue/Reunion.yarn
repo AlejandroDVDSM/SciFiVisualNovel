@@ -1,0 +1,19 @@
+﻿title: Reunion
+tags:
+---
+<<setsprite Background WideShot>>
+<<destroy SpawnManager Captain>>
+<<destroy SpawnManager Mordin>>
+<<fadein Panel>>
+
+//Hacer nodos exlucivos para cada ramificación
+<<if $crew_knows_legion_status == true>>
+  NOTA: LA TRIPULACIÓN SABE SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+<<elseif $crew_knows_legion_status == false>>
+  <<if $miranda_knows_legion_status == true>>
+    NOTA: NI MIRANDA NI LA TIPULACIÓN SABEN NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+  <<else>>
+    NOTA: NI MIRANDA NI EL RESTO DE LA TIPULACIÓN SABE NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+  <<endif>>
+<<endif>>
+===
