@@ -30,8 +30,9 @@ position: -221,-155
 <<fadein Panel>>
 <<place SpawnManager Captain left>>
 <<setsprite Captain Angry>>
-Tú: ¿Mordin? Si es sobre la avería del tanque de hidrógeno de peróxido, hubiese sido mejor despertar a Tali y no a mi.
+Tú: ¿Mordin? 
 <<setsprite Mordin Scared>>
+Tú: Si es sobre la avería del tanque de hidrógeno de peróxido, hubiese sido mejor despertar a Tali y no a mi.
 Mordin: Ojalá fuese una avería...
 <<set $player_knows_who_died to false>>
 <<jump Start>>
