@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7895214635316778852}
   - component: {fileID: 4085626405875208532}
   - component: {fileID: 6947235870690193120}
+  - component: {fileID: -3217077903976414638}
   m_Layer: 0
   m_Name: Kaidan
   m_TagString: Character
@@ -112,3 +113,15 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9b260dae0dc593e41b00dd5a0329f0c1, type: 3}
   - name: Unknown
     sprite: {fileID: 21300000, guid: 784baa90cb0f4524bb88675823b3c8fe, type: 3}
+--- !u!114 &-3217077903976414638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296509892070928635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

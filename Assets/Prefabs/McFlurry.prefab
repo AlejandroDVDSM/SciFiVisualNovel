@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1344731409068570232}
   - component: {fileID: 7775130577035130421}
   - component: {fileID: -2088107536079243912}
+  - component: {fileID: -7017020872310729514}
   m_Layer: 0
   m_Name: McFlurry
   m_TagString: Character
@@ -110,3 +111,15 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3909f2c269fddc640a16bb0ed58bdf7b, type: 3}
   - name: Unknown
     sprite: {fileID: 21300000, guid: fdd740438f7cf564290e07f1a638c816, type: 3}
+--- !u!114 &-7017020872310729514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396517134386250805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7441681054985224926}
   - component: {fileID: 6273882578805830755}
   - component: {fileID: -4630704830694859152}
+  - component: {fileID: -6989648125733254557}
   m_Layer: 0
   m_Name: Ashley
   m_TagString: Character
@@ -112,3 +113,15 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1f90a090e2863d74bbeef0e5ef5899e3, type: 3}
   - name: Unknown
     sprite: {fileID: 21300000, guid: 7297ca318e822fb4aa8ff885530ba273, type: 3}
+--- !u!114 &-6989648125733254557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718058314563984883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

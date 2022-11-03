@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7796372843643276782}
   - component: {fileID: 5790157789323546273}
   - component: {fileID: -3229825190698213910}
+  - component: {fileID: 3858347154154176550}
   m_Layer: 0
   m_Name: Tali
   m_TagString: Character
@@ -112,3 +113,15 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2f6812a8e667e624fa64732528b43c46, type: 3}
   - name: Unkown
     sprite: {fileID: 21300000, guid: df33b01fd927a424c886e781d07fb504, type: 3}
+--- !u!114 &3858347154154176550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4911638073254346368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

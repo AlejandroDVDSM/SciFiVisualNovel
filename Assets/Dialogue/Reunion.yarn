@@ -1,7 +1,7 @@
 ﻿title: Reunion
 tags:
 ---
-<<setsprite Background WideShot>>
+<<setsprite Scene WideShot>>
 <<destroy SpawnManager Captain>>
 <<destroy SpawnManager Mordin>>
 <<fadein Panel>>

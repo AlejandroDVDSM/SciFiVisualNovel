@@ -2,7 +2,7 @@
 tags:
 position: -6,-385
 ---
-<<setsprite Background Corpse>>
+<<setsprite Scene Corpse>>
 
 <<if !$player_knows_cat>>
   <<destroy SpawnManager Captain>>

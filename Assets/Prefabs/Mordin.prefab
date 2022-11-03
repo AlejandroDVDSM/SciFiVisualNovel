@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6287964263777836728}
   - component: {fileID: 5201785293656797002}
   - component: {fileID: -2113891354505181703}
+  - component: {fileID: -5173856587899706669}
   m_Layer: 0
   m_Name: Mordin
   m_TagString: Character
@@ -112,3 +113,15 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 70aa935315330de4ca826d34d323fe70, type: 3}
   - name: Unknown
     sprite: {fileID: 21300000, guid: 8c0654b9ff2abf2449b52ff2e66c7df9, type: 3}
+--- !u!114 &-5173856587899706669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7218243092698170125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

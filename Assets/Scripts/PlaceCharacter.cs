@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -27,24 +25,32 @@ public class PlaceCharacter : MonoBehaviour
     [YarnCommand("place")]
     public void PlaceCharacterPrefab(string characterName, string position)
     {
+        GameObject newCharacter = null;
+
         foreach (var info in characters)
         {
             if (info.name == characterName)
             {
                 if (position == "left")
                 {
-                    GameObject newCharacter = (GameObject)Instantiate(info.characterPrefab, left, transform.rotation);
-                    newCharacter.name = characterName;
+                    newCharacter = (GameObject)Instantiate(info.characterPrefab, left, transform.rotation);
+                    newCharacter.name = info.name;
                 } else if (position == "right")
                 {
-                    GameObject newCharacter = (GameObject)Instantiate(info.characterPrefab, right, transform.rotation);
-                    newCharacter.name = characterName;
+                    newCharacter = (GameObject)Instantiate(info.characterPrefab, right, transform.rotation);
+                    newCharacter.name = info.name;
                 } else
                 {
-                    Debug.LogWarning(position + " must be left or right");
+                    Debug.LogErrorFormat("Position must be 'left' or 'right' but instead {0} was received", position);
                 }
                 break;
             }
+        }
+
+        if (newCharacter == null)
+        {
+            Debug.LogErrorFormat("Can't find character named {0}!", characterName);
+            return;
         }
     }
 

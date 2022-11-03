@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7598028341057110636}
   - component: {fileID: 6916779809776152941}
   - component: {fileID: 1178396184193155193}
+  - component: {fileID: -3510435824349194369}
   m_Layer: 0
   m_Name: Saren
   m_TagString: Character
@@ -112,3 +113,15 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ae97af32a041e87439aaf987865198fa, type: 3}
   - name: Saren
     sprite: {fileID: 21300000, guid: 5b2175ffe2f9d5e4f813f883066bc813, type: 3}
+--- !u!114 &-3510435824349194369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5554789513904280729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6263887477183168629}
   - component: {fileID: 1498345752326648570}
   - component: {fileID: -343356959543382980}
+  - component: {fileID: -7976126909405485322}
   m_Layer: 0
   m_Name: Miranda_Armor
   m_TagString: Character
@@ -110,3 +111,15 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8ba1ac13ffbfbf745823ba3c4508ea30, type: 3}
   - name: Surprised
     sprite: {fileID: 21300000, guid: 57f8e8ec34bad6241bf71f3455b8a3f3, type: 3}
+--- !u!114 &-7976126909405485322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67632744892439907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

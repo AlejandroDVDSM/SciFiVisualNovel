@@ -3,7 +3,7 @@ tags:
 position: -17,-271
 ---
 <<if !visited("Start")>>
-  <<setsprite Background CaptainRoom>>
+  <<setsprite Scene CaptainRoom>>
   Tú: Zzz...
   <<place SpawnManager Mordin right>>
   <<setsprite Mordin Unknown>>
