@@ -1,19 +1,77 @@
 ﻿title: Reunion
 tags:
+position: 13,-274
 ---
-<<setsprite Scene WideShot>>
 <<destroy SpawnManager Captain>>
 <<destroy SpawnManager Mordin>>
-<<fadein Panel>>
 
 //Hacer nodos exlucivos para cada ramificación
 <<if $crew_knows_legion_status == true>>
-  NOTA: LA TRIPULACIÓN SABE SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+  <<jump Reunion_Everyone>>
 <<elseif $crew_knows_legion_status == false>>
   <<if $miranda_knows_legion_status == true>>
-    NOTA: NI MIRANDA NI LA TIPULACIÓN SABEN NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+    ¿A quién deseas visitar primero?
+    -> Miranda, la jefa de seguridad
+      <<jump Reunion_Miranda>>
+    -> Ashley, la teniente de vuelo
+      <<jump Reunion_Ashley>>
   <<else>>
-    NOTA: NI MIRANDA NI EL RESTO DE LA TIPULACIÓN SABE NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+    << jump No_Reunion>>
   <<endif>>
 <<endif>>
+===
+
+title: Reunion_Everyone
+tags:
+position: -319,-176
+---
+NOTA: LA TRIPULACIÓN SABE SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+
+===
+
+title: Reunion_Miranda
+tags:
+position: 13,-83
+---
+<<setsprite Scene FrontDoor>>
+<<place SpawnManager Captain left>>
+<<fadein Panel>>
+<<play AudioManager Knock_Door>>
+Tú: ¿Puedo pasar?
+<<fadeout Panel>>
+???: Claro, entra.
+<<setsprite Scene FrontDoorInside>>
+<<fadein Panel>>
+<<place SpawnManager Miranda right>>
+<<setsprite Miranda Unknown>>
+???: ¿Necesitas algo?
+Tú: No, Miranda. Vengo a ponerte al día.
+<<setsprite Miranda Surprised>>
+Miranda: ¿Todo bien?
+<<setsprite Miranda Neutral>>
+<<setsprite Captain Sad>>
+Tú: No. Esto que te voy a contar solo lo saben Mordin y Kaidan así que te pido que lo mantengas en secreto por el momento.
+Tú: Kaidan ha encontrado el cadáver de Legión
+<<setsprite Miranda Surprised>>
+Miranda: ¿Se sabe quién ha sido? ¿Porqué y cómo?
+Tú: No sabemos nada.
+<<setsprite Captain Neutral>>
+
+// Hacer un condicional donde contar si has decidido dar media vuelta o no.
+
+===
+
+title: Reunion_Ashley
+tags:
+position: 329,-182
+---
+NOTA: VISITAS A MIRANDA
+
+===
+title: No_Reunion
+tags:
+position: 329,-182
+---
+NOTA: NI MIRANDA NI LA TIPULACIÓN SABEN NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+
 ===

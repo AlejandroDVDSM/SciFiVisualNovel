@@ -111,7 +111,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0952a5c192e779f48a9890933fed6d89, type: 3}
   - name: Surprised
     sprite: {fileID: 21300000, guid: 47ea12144eac9724087e552819a2b981, type: 3}
-  - name: Unkown
+  - name: Unknown
     sprite: {fileID: 21300000, guid: a1b6b384c594c8e429ede75471513ffd, type: 3}
 --- !u!114 &3272418915950639793
 MonoBehaviour:
