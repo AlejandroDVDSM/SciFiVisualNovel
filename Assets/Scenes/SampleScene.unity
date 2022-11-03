@@ -500,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 2809876128215858307, guid: 3ff4e0d87ab7d4789a1565ac303e8261, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c437baa2a5af3264491e332a5516cbf8, type: 3}
+      objectReference: {fileID: 21300000, guid: 30e8162f94a651d4cb8b4fecd2ebe46e, type: 3}
     - target: {fileID: 5481484092624835572, guid: 3ff4e0d87ab7d4789a1565ac303e8261, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -586,9 +586,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5665317717604146022, guid: 3ff4e0d87ab7d4789a1565ac303e8261, type: 3}
+      propertyPath: showCharacterName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665317717604146022, guid: 3ff4e0d87ab7d4789a1565ac303e8261, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e53f9b916a70a524194b77e08eae1898, type: 3}
+    - target: {fileID: 5665317717604146022, guid: 3ff4e0d87ab7d4789a1565ac303e8261, type: 3}
       propertyPath: m_SpriteState.m_SelectedSprite
       value: 
       objectReference: {fileID: 21300000, guid: 620b3ad4fe4a49c41ab3fa007a405cf2, type: 3}
+    - target: {fileID: 5665317717604146022, guid: 3ff4e0d87ab7d4789a1565ac303e8261, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6635123125486227991, guid: 3ff4e0d87ab7d4789a1565ac303e8261, type: 3}
       propertyPath: m_Name
       value: Option View
