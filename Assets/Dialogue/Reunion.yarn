@@ -37,10 +37,15 @@ position: -266,-275
 <<fadein Panel>>
 
 <<place SpawnManager Captain Left>>
-Tú: Os he reunido a todos para contaros sobre la muerte de Legión.
-Tú: Kaidan lo ha encontrado hace menos de una hora.
+<<if visited("Ashley_Dies")>>
+  Tú: Os he reunido a todos para contaros sobre la muerte de Legión y Ashley.
+<<else>>
+  Tú: Os he reunido a todos para contaros sobre la muerte de Legión.
+<<endif>>
+Tú: Kaidan ha encontrado a Legión hace menos de una hora.
 Tú: Según él, vio una sombra alejarse del cadáver, pero seguramente haya sido McFlurry.
-NOTA: REUNIÓN CON TODOS. SEGUIR DESARROLLANDO
+
+NOTA: ESTA RAMA NO HA SIDO DESARROLLADA AL COMPLETO AÚN (REUNIÓN CON TODOS). SEGUIR DESARROLLANDO
 
 ===
 
@@ -48,7 +53,7 @@ title: No_Reunion
 tags:
 position: 352,-273
 ---
-NOTA: NI MIRANDA NI LA TIPULACIÓN SABEN NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+NOTA: ESTA RAMA NO HA SIDO DESARROLLADA AL COMPLETO AÚN (NO TE REUNES CO NADIE). SEGUIR DESARROLLANDO
 
 ===
 
@@ -278,6 +283,7 @@ Tú: Juraría haberlo visto girar hacia aquí.
   <<endif>>
   Tú: Mierda, ha vuelto a escapar.
   Tú: Lo mejor será convocar ya la reunión.
+  NOTA: SEGUIR DESARROLLANDO.
 
 -> *Dialogar*
   <<play AudioManager Click>>
@@ -302,5 +308,6 @@ Tú: Juraría haberlo visto girar hacia aquí.
   <<endif>>
   Tú: Mierda, ha vuelto a escapar.
   Tú: Lo mejor será convocar ya la reunión.
+  NOTA: SEGUIR DESARROLLANDO.
 
 ===
