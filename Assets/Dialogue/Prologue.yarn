@@ -10,6 +10,7 @@ position: -17,-271
   ???: ¡Capitán! ¡Despierte, tenemos una urgencia!
   -> *Despertarse*
     <<play AudioManager Click>>
+    <<play AudioManager MainTheme>>
     <<jump Captain_Awake>>
   -> *Ignorar su aviso y seguir durmiendo*
     <<play AudioManager Click>>
@@ -43,6 +44,7 @@ tags:
 position: 181,-160
 ---
 Tú: Zzz...
+<<play AudioManager MainTheme>>
 ???: ¡Kaidan ha encontrado a Legión...! 
 ???: ¡Muerto!
 <<set $player_knows_who_died to true>>

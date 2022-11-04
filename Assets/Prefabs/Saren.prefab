@@ -111,7 +111,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 674e2e77687ca6e4ca762e65b6a446a3, type: 3}
   - name: Surprised
     sprite: {fileID: 21300000, guid: ae97af32a041e87439aaf987865198fa, type: 3}
-  - name: Saren
+  - name: Unknown
     sprite: {fileID: 21300000, guid: 5b2175ffe2f9d5e4f813f883066bc813, type: 3}
 --- !u!114 &-3510435824349194369
 MonoBehaviour:

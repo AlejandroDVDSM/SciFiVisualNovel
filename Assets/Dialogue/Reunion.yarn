@@ -10,10 +10,12 @@ position: 13,-274
   <<jump Reunion_Everyone>>
 <<elseif $crew_knows_legion_status == false>>
   <<if $miranda_knows_legion_status == true>>
-    ¿A quién deseas visitar primero?
+    ¿A quién deseas visitar?
     -> Miranda, la jefa de seguridad
+      <<play AudioManager Click>>
       <<jump Reunion_Miranda>>
-    -> Ashley, la teniente de vuelo
+    -> Ashley, la teniente de vuelo <<if $destination == "Palaven">>
+      <<play AudioManager Click>>
       <<jump Reunion_Ashley>>
   <<else>>
     << jump No_Reunion>>
@@ -23,7 +25,7 @@ position: 13,-274
 
 title: Reunion_Everyone
 tags:
-position: -319,-176
+position: -266,-275
 ---
 NOTA: LA TRIPULACIÓN SABE SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
 
@@ -31,7 +33,7 @@ NOTA: LA TRIPULACIÓN SABE SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
 
 title: Reunion_Miranda
 tags:
-position: 13,-83
+position: -120,0
 ---
 <<setsprite Scene FrontDoor>>
 <<place SpawnManager Captain left>>
@@ -50,27 +52,152 @@ Tú: No, Miranda. Vengo a ponerte al día.
 Miranda: ¿Todo bien?
 <<setsprite Miranda Neutral>>
 <<setsprite Captain Sad>>
-Tú: No. Esto que te voy a contar solo lo saben Mordin y Kaidan así que te pido que lo mantengas en secreto por el momento.
-Tú: Kaidan ha encontrado el cadáver de Legión
+Tú: No. Esto que te voy a contar solo lo saben Mordin y Kaidan así que te pido que lo mantengas oculto por el momento.
+Tú: Kaidan ha encontrado el cadáver de Legión.
 <<setsprite Miranda Surprised>>
 Miranda: ¿Se sabe quién ha sido? ¿Porqué y cómo?
 Tú: No sabemos nada.
+<<setsprite Miranda Neutral>>
 <<setsprite Captain Neutral>>
 
-// Hacer un condicional donde contar si has decidido dar media vuelta o no.
+<<if $destination == "Palaven">>
+  Tú: Una última cosa: he decidido que suspender la misión es lo más conveniente.
+  Tú: Volveremos a Palaven.
+  <<fadeout Panel>>
+  <<destroy SpawnManager Miranda>>
+  Tú: Ahora que estás al tanto de todo yo iré a contarle a Ashley el cambio de rumbo.
+  <<jump Reunion_Ashley>>
 
+<<elseif $destination == "Tuchanka">>
+  Tú: La misión sigue en pie, así que tendremos que resolver esto de camino a Tuchanka.
+  <<fadeout Panel>>
+  <<destroy SpawnManager Miranda>>
+  <<jump Reunion_Ashley>>
+<<endif>>
 ===
 
 title: Reunion_Ashley
 tags:
-position: 329,-182
+position: 128,0
 ---
-NOTA: VISITAS A MIRANDA
-
+<<if visited("Reunion_Miranda")>>
+  <<jump Ashley_Dies>>
+<<else>>
+  <<jump Ashley_Lives>>
+<<endif>>
 ===
+
+title: Ashley_Dies
+tags:
+position: 35,186
+---
+  <<setsprite Scene FrontDoor>>
+  <<fadein Panel>>
+  <<play AudioManager Alarm>>
+  Tú: ¡Mierda, la alarma!
+  <<fadeout Panel>>
+  Altavoz: *NECESITO AYUDA URGENTEMENTE EN LA CABINA DE LA NAVE*
+  <<setsprite Scene Cabin>>
+  <<fadein Panel>>
+  <<destroy SpawnManager Captain>>
+  <<place SpawnManager Ashley left>>
+  <<setsprite Ashley Unknown>>
+  <<place SpawnManager BabySaren right>>
+  ???: AYUDA
+  <<destroy SpawnManager Ashley>>
+  <<place SpawnManager Captain left>>
+  <<setsprite Captain Angry>>
+  Tú: ¡Ashley, apártate y podré dispararle!
+  <<play AudioManager Shotgun>>
+  <<setsprite BabySaren Sad>>
+  ???: ¡URGH!
+  <<destroy SpawnManager BabySaren>>
+  <<setsprite Captain Happy>>
+  Tú: ¡Le he dado!
+  <<setsprite Captain Angry>>
+  Tú: ¡Pero se ha largado!
+  <<setsprite Captain Sad>>
+  Tú: ¿Ashley?
+  Tú: Mierda, he llegado tarde...
+  <<place SpawnManager Tali right>>
+  <<setsprite Tali Unknown>>
+  ???: Joder, ¿qué era eso? ¿Estáis bien?
+  <<setsprite Tali Scared>>
+  Tú: Ashley ha muerto...
+  <<setsprite Captain Angry>>
+  Tú: ¡Tali! ¡Ve a por Miranda y persigue a esa cosa!
+  <<setsprite Tali Neutral>>
+  Tali: Estoy en ello.
+  <<destroy SpawnManager Tali>>
+===
+
+title: Ashley_Lives
+tags:
+position: 214,186
+---
+<<setsprite Scene Cabin>>
+<<fadein Panel>>
+<<place SpawnManager Ashley right>>
+<<setsprite Ashley Unknown>>
+<<place SpawnManager Captain left>>
+???: ¿Capitán? A esta hora imaginé que aún estaría durmiendo.
+Tú: Buenos días, Ashley. Necesito que fijes rumbo a Palaven.
+<<setsprite Ashley Surprised>>
+Ashley: ¿A Palaven? ¿Y qué pasa con la misión? ¿No deberíamos ir a Tuchanka?
+<<setsprite Ashley Neutral>>
+Tú: Mmmm...
+Tú: La misión ha sido suspendida hasta nueva orden por la marina.
+<<play AudioManager Noises>>
+???: *Suena algo de fondo*
+Tú: ¿Otra vez McFlurry?
+<<destroy SpawnManager Captain>>
+<<destroy SpawnManager Ashley>>
+<<place SpawnManager Ashley left>>
+<<setsprite Ashley Scared>>
+<<place SpawnManager BabySaren right>>
+Ashley: ¡Esa cosa no es McFlurry!
+Ashley: ¡Urgh!
+Ashley: ¡Mi pierna!
+<<setsprite Ashley Angry>>
+<<play AudioManager Alarm>>
+<<destroy SpawnManager Ashley>>
+<<place SpawnManager Captain left>>
+<<setsprite Captain Angry>>
+Tú: *A través del altavoz* ¡NECESITAMOS AYUDA URGENTEMENTE EN LA CABINA!
+Tú: He hecho sonar la alarma. 
+Tú: Ashley, hazte a un lado y podré dispararle.
+<<play AudioManager Shotgun>>
+<<setsprite BabySaren Sad>>
+???: ¡URGH!
+<<destroy SpawnManager BabySaren>>
+<<setsprite Captain Happy>>
+Tú: ¡Le he dado!
+<<setsprite Captain Angry>>
+Tú: ¡Pero se ha largado!
+<<place SpawnManager Tali right>>
+<<setsprite Tali Unknown>>
+???: Joder, ¿qué era eso? ¿Estáis bien?
+<<setsprite Tali Scared>>
+Tú: ¡Tali! ¡Ve a por Miranda y persigue a esa cosa!
+<<setsprite Tali Neutral>>
+Tali: Estoy en ello.
+<<destroy SpawnManager Tali>>
+<<place SpawnManager Ashley right>>
+<<setsprite Ashley Scared>>
+Tú: Ashley, ¿estás bien?
+Ashley: ¡No, claro que no estoy bien!
+Ashley: Una mierda andante me ha atacado. y me ha destrozado la pierna derecha.
+Ashley: ¿Qué carajos era eso, Capitán?
+<<setsprite Captain Sad>>
+Tú: No lo sabemos, pero ha acabado con Legión.
+Tú: Lo he mantenido oculto porque pensé que era buena idea.
+<<setsprite Ashley Angry>>
+Ashley: ¿¡Nos lo ocultaste!?
+===
+
 title: No_Reunion
 tags:
-position: 329,-182
+position: 352,-273
 ---
 NOTA: NI MIRANDA NI LA TIPULACIÓN SABEN NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
 

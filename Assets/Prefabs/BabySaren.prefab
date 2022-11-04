@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6603097775220568921}
   - component: {fileID: 34857226475572800}
+  - component: {fileID: -349665055041057038}
   - component: {fileID: -4794562429176997715}
   m_Layer: 0
   m_Name: BabySaren
@@ -85,6 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-349665055041057038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952918479983397917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeb5c95cc73fac40af9c696c0b8877e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - name: Mad
+    sprite: {fileID: 21300000, guid: 1474c7af32be1a444823f1059d1f1d1c, type: 3}
+  - name: Sad
+    sprite: {fileID: 21300000, guid: a121a65a8af93004fabf2f10e6922240, type: 3}
 --- !u!114 &-4794562429176997715
 MonoBehaviour:
   m_ObjectHideFlags: 0
