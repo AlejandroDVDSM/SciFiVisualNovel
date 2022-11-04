@@ -1450,6 +1450,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ShipLanding
+    clip: {fileID: 8300000, guid: 03ca12a468980a546bf59a08e95fa805, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1869511222
 Transform:
   m_ObjectHideFlags: 0
