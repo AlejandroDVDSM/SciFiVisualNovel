@@ -35,6 +35,11 @@ position: -266,-275
 ---
 <<setsprite Scene WideShot>>
 <<fadein Panel>>
+
+<<place SpawnManager Captain Left>>
+Tú: Os he reunido a todos para contaros sobre la muerte de Legión.
+Tú: Kaidan lo ha encontrado hace menos de una hora.
+Tú: Según él, vio una sombra alejarse del cadáver, pero seguramente haya sido McFlurry.
 NOTA: REUNIÓN CON TODOS. SEGUIR DESARROLLANDO
 
 ===
