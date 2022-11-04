@@ -250,7 +250,7 @@ tags:
     <<jump Reunion>>
   -> *Ocultárselo a Miranda*
     <<play AudioManager Click>>
-    <<set $miranda_knows_legion_status to true>>
+    <<set $miranda_knows_legion_status to false>>
     <<setsprite Mordin Angry>>
     Tú: Creo que no será necesario.
     <<jump Reunion>>

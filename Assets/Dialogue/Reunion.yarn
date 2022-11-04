@@ -5,11 +5,11 @@ position: 13,-274
 <<destroy SpawnManager Captain>>
 <<destroy SpawnManager Mordin>>
 
-//Hacer nodos exlucivos para cada ramificación
 <<if $crew_knows_legion_status == true>>
   <<jump Reunion_Everyone>>
-<<elseif $crew_knows_legion_status == false>>
+<<else>>
   <<if $miranda_knows_legion_status == true>>
+    <<fadeout Panel>>
     ¿A quién deseas visitar?
     -> Miranda, la jefa de seguridad
       <<play AudioManager Click>>
@@ -18,7 +18,13 @@ position: 13,-274
       <<play AudioManager Click>>
       <<jump Reunion_Ashley>>
   <<else>>
-    << jump No_Reunion>>
+    <<if $destination == "Palaven">>
+      <<fadeout Panel>>
+      Tú: Iré a avisar a Ashley para que cambie de rumbo.
+      <<jump Ashley_Lives>>
+    <<else>>
+      <<jump No_Reunion>>
+    <<endif>>
   <<endif>>
 <<endif>>
 ===
@@ -27,7 +33,17 @@ title: Reunion_Everyone
 tags:
 position: -266,-275
 ---
-NOTA: LA TRIPULACIÓN SABE SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+<<setsprite Scene WideShot>>
+<<fadein Panel>>
+NOTA: REUNIÓN CON TODOS. SEGUIR DESARROLLANDO
+
+===
+
+title: No_Reunion
+tags:
+position: 352,-273
+---
+NOTA: NI MIRANDA NI LA TIPULACIÓN SABEN NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
 
 ===
 
@@ -91,44 +107,65 @@ title: Ashley_Dies
 tags:
 position: 35,186
 ---
-  <<setsprite Scene FrontDoor>>
-  <<fadein Panel>>
-  <<play AudioManager Alarm>>
-  Tú: ¡Mierda, la alarma!
+<<setsprite Scene FrontDoor>>
+<<fadein Panel>>
+<<play AudioManager Alarm>>
+Tú: ¡Mierda, la alarma!
+<<fadeout Panel>>
+Altavoz: *NECESITO AYUDA URGENTEMENTE EN LA CABINA DE LA NAVE*
+<<setsprite Scene Cabin>>
+<<fadein Panel>>
+<<destroy SpawnManager Captain>>
+<<place SpawnManager Ashley left>>
+<<setsprite Ashley Unknown>>
+<<place SpawnManager BabySaren right>>
+???: AYUDA
+<<destroy SpawnManager Ashley>>
+<<place SpawnManager Captain left>>
+<<setsprite Captain Angry>>
+Tú: ¡Ashley, apártate y podré dispararle!
+<<play AudioManager Shotgun>>
+<<setsprite BabySaren Sad>>
+???: ¡URGH!
+<<destroy SpawnManager BabySaren>>
+<<setsprite Captain Happy>>
+Tú: ¡Le he dado!
+<<setsprite Captain Angry>>
+Tú: ¡Pero se ha largado!
+<<setsprite Captain Sad>>
+Tú: ¿Ashley?
+Tú: Mierda, he llegado tarde...
+<<place SpawnManager Tali right>>
+<<setsprite Tali Unknown>>
+???: Joder, ¿qué era eso? ¿Estáis bien?
+<<setsprite Tali Scared>>
+Tú: Ashley ha muerto...
+<<setsprite Captain Angry>>
+Tú: ¡Tali! ¡Ve a por Miranda y persigue a esa cosa!
+<<setsprite Tali Neutral>>
+Tali: Estoy en ello.
+
+-> *Dar caza al enemigo*
+  <<play AudioManager Click>>
+  Tú: Yo iré a por el enemigo.
+  <<if $destination == "Palaven">>
+    Tú: Mientras tanto, fija rumbo a Palaven.
+  <<endif>>
   <<fadeout Panel>>
-  Altavoz: *NECESITO AYUDA URGENTEMENTE EN LA CABINA DE LA NAVE*
-  <<setsprite Scene Cabin>>
-  <<fadein Panel>>
-  <<destroy SpawnManager Captain>>
-  <<place SpawnManager Ashley left>>
-  <<setsprite Ashley Unknown>>
-  <<place SpawnManager BabySaren right>>
-  ???: AYUDA
-  <<destroy SpawnManager Ashley>>
-  <<place SpawnManager Captain left>>
-  <<setsprite Captain Angry>>
-  Tú: ¡Ashley, apártate y podré dispararle!
-  <<play AudioManager Shotgun>>
-  <<setsprite BabySaren Sad>>
-  ???: ¡URGH!
-  <<destroy SpawnManager BabySaren>>
-  <<setsprite Captain Happy>>
-  Tú: ¡Le he dado!
-  <<setsprite Captain Angry>>
-  Tú: ¡Pero se ha largado!
-  <<setsprite Captain Sad>>
-  Tú: ¿Ashley?
-  Tú: Mierda, he llegado tarde...
-  <<place SpawnManager Tali right>>
-  <<setsprite Tali Unknown>>
-  ???: Joder, ¿qué era eso? ¿Estáis bien?
-  <<setsprite Tali Scared>>
-  Tú: Ashley ha muerto...
-  <<setsprite Captain Angry>>
-  Tú: ¡Tali! ¡Ve a por Miranda y persigue a esa cosa!
-  <<setsprite Tali Neutral>>
-  Tali: Estoy en ello.
+  Tú: También, incrementa la velocidad de la nave. Luego, ve a por Miranda y dile que se ponga su traje de combate.
+  <<destroy SpawnManager Tali>> 
+  <<jump Player_Hunts_BabySaren>>
+
+-> *Convocar reunión*
+  <<play AudioManager Click>>
+  Tú: Voy a convocar una reunión para alertarlos a todos.
+  <<if $destination == "Palaven">>
+    Tú: Mientras tanto, fija rumbo a Palaven.
+  <<endif>>
+  <<fadeout Panel>>
+  Tú: También, incrementa la velocidad de la nave. Luego, ve a por Miranda y dile que se ponga su traje de combate.
   <<destroy SpawnManager Tali>>
+  <<jump Reunion_Everyone>>
 ===
 
 title: Ashley_Lives
@@ -193,12 +230,72 @@ Tú: No lo sabemos, pero ha acabado con Legión.
 Tú: Lo he mantenido oculto porque pensé que era buena idea.
 <<setsprite Ashley Angry>>
 Ashley: ¿¡Nos lo ocultaste!?
+-> *Dar caza al enemigo*
+  <<play AudioManager Click>>
+  <<fadeout Panel>>
+  Tú: Yo iré a por el enemigo mientras Tali va a por Miranda.
+  <<destroy SpawnManager Ashley>> 
+  <<jump Player_Hunts_BabySaren>>
+-> *Convocar reunión*
+  <<play AudioManager Click>>
+  <<fadeout Panel>>
+  Tú: Mientras Tali va a por Miranda, notificaré a todos de lo sucedido.
+  <<jump Reunion_Everyone>>
 ===
 
-title: No_Reunion
+title: Player_Hunts_BabySaren
 tags:
-position: 352,-273
 ---
-NOTA: NI MIRANDA NI LA TIPULACIÓN SABEN NADA SOBRE LA MUERTE DE LEGIÓN. SEGUIR DESARROLLANDO
+<<setsprite Scene FrontDoor>>
+<<fadein Panel>>
+Tú: ¿Dónde se ha metido?
+Tú: Juraría haberlo visto girar hacia aquí.
+<<place SpawnManager Saren right>>
+<<setsprite Saren Unknown>>
+???: Aquí estoy...
+
+-> *Disparar*
+  <<play AudioManager Click>>
+  <<play AudioManager Shotgun>>
+  <<setsprite Captain Angry>>
+  ???: Esta vez no has tenido tanta suerte de acertar.
+  Tú: ¿Y tú quién eres ahora?
+  ???: Saren. Ese es mi nombre.
+  <<setsprite Saren Angry>>
+  <<play AudioManager Shotgun>>
+  Tú: Que te den, Saren.
+  <<destroy SpawnManager Saren>>
+  <<play AudioManager ShipLanding>>
+  <<if $destination == "Palaven">>
+    Tú: Parece que ya hemos llegado a Palaven.
+  <<else>>
+    Tú: Parece que ya hemos llegado a Tuchanka.
+  <<endif>>
+  Tú: Mierda, ha vuelto a escapar.
+  Tú: Lo mejor será convocar ya la reunión.
+
+-> *Dialogar*
+  <<play AudioManager Click>>
+  <<setsprite Captain Angry>>
+  Tú: ¿Y tú quién eres ahora?
+  ???: Saren. Ese es mi nombre.
+  <<setsprite Saren Neutral>>
+  <<if visited("Ashley_Dies")>>
+    Tú: ¿Eres amigo del que asesinó a Legión y a Ashley?
+  <<else>>
+    Tú: ¿Eres amigo del que asesinó a Legión y atacó a Ashley?
+  <<endif>>
+  Saren: Yo soy quién los asesinó. 
+  Saren: Mi ciclo vital por fin se ha completado y he evolucionado a lo que estás viendo.
+  Saren: Beneficios de mi raza.
+  <<destroy SpawnManager Saren>>
+  <<play AudioManager ShipLanding>>
+  <<if $destination == "Palaven">>
+    Tú: Parece que ya hemos llegado a Palaven.
+  <<else>>
+    Tú: Parece que ya hemos llegado a Tuchanka.
+  <<endif>>
+  Tú: Mierda, ha vuelto a escapar.
+  Tú: Lo mejor será convocar ya la reunión.
 
 ===
