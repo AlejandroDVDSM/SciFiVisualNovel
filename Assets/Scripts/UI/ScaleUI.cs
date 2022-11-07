@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FadeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ScaleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] private float maxScaleLimit;
+    [SerializeField] private float minScaleLimit;
+
     private bool isPointerOverUI;
 
     private Vector3 currentVelocity = Vector3.zero;
-    private float smoothTime = 0.9f;
+    private float smoothTime = 0.6f;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -23,10 +24,10 @@ public class FadeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     // Update is called once per frame
     public void Update()
     {
-        if (isPointerOverUI && transform.localScale.x < .12f)
+        if (isPointerOverUI && transform.localScale.x < maxScaleLimit)
         {
             transform.localScale = Vector3.SmoothDamp(transform.localScale, transform.localScale * 1.25f, ref currentVelocity, smoothTime);
-        } else if (!isPointerOverUI && transform.localScale.x > .1f) {
+        } else if (!isPointerOverUI && transform.localScale.x > minScaleLimit) {
             transform.localScale = Vector3.SmoothDamp(transform.localScale, transform.localScale / 1.25f, ref currentVelocity, smoothTime);
         }
     }
