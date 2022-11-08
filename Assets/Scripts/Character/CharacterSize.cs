@@ -6,16 +6,11 @@ using TMPro;
 public class CharacterSize : MonoBehaviour
 {
     private TextMeshProUGUI characterName;
-    private Vector3 originalPosition, newPosition;
+    private bool isAlreadyHighlighted = false;
 
     private void Start()
     {
         characterName = GameObject.FindGameObjectWithTag("CharacterName").GetComponent<TextMeshProUGUI>();
-
-        originalPosition = transform.position;
-
-        newPosition = originalPosition;
-        newPosition.y = 0.75f;
     }
 
 
@@ -28,13 +23,16 @@ public class CharacterSize : MonoBehaviour
     {
         if (characterName.text == this.name || (this.name == "Captain" && characterName.text == "Tú"))
         {
-            transform.localScale = Vector3.one * 1.25f;
-            transform.position = newPosition;
+            if (!isAlreadyHighlighted)
+            {
+                transform.localScale = Vector3.one * 1.25f;
+                isAlreadyHighlighted = true;
+            }
         }
         else
         {
             transform.localScale = Vector3.one;
-            transform.position = originalPosition;
+            isAlreadyHighlighted = false;
         }
     }
 }

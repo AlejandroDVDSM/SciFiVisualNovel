@@ -23,7 +23,7 @@ public class CharacterBreath : MonoBehaviour
         scaleValue = .02;
         originalScale = transform.localScale;
         breathInScale = new Vector3(originalScale.x - (float)scaleValue, originalScale.y + (float)scaleValue, 1);
-        breathOutScale = new Vector3(originalScale.x + (float)scaleValue, originalScale.y -(float)scaleValue, 1);
+        breathOutScale = new Vector3(originalScale.x + (float)scaleValue, originalScale.y - (float)scaleValue, 1);
     }
 
     // Update is called once per frame
