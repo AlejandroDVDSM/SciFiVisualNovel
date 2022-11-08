@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 34857226475572800}
   - component: {fileID: -349665055041057038}
   - component: {fileID: -4794562429176997715}
+  - component: {fileID: 4647344161301848321}
   m_Layer: 0
   m_Name: BabySaren
   m_TagString: Character
@@ -113,5 +114,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4647344161301848321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952918479983397917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ac9b4f0a42a1c4ca17d6586d2a9237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

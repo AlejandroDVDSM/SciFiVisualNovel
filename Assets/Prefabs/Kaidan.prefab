@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4085626405875208532}
   - component: {fileID: 6947235870690193120}
   - component: {fileID: -3217077903976414638}
+  - component: {fileID: 4364384643092245869}
   m_Layer: 0
   m_Name: Kaidan
   m_TagString: Character
@@ -123,5 +124,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4364384643092245869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296509892070928635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ac9b4f0a42a1c4ca17d6586d2a9237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

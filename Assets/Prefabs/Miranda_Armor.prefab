@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1498345752326648570}
   - component: {fileID: -343356959543382980}
   - component: {fileID: -7976126909405485322}
+  - component: {fileID: -4376068107084601252}
   m_Layer: 0
   m_Name: Miranda_Armor
   m_TagString: Character
@@ -121,5 +122,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c6841a39376d91438a431e5662d3dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4376068107084601252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67632744892439907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ac9b4f0a42a1c4ca17d6586d2a9237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
