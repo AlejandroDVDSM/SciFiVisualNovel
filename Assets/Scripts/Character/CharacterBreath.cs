@@ -7,6 +7,7 @@ public class CharacterBreath : MonoBehaviour
 {
     private Vector3 newPosition;
 
+    private double scaleValue;
     private Vector3 originalScale;
     private Vector3 breathInScale;
     private Vector3 breathOutScale;
@@ -21,9 +22,10 @@ public class CharacterBreath : MonoBehaviour
     {
         newPosition = transform.position;
 
+        scaleValue = .02;
         originalScale = transform.localScale;
-        breathInScale = new Vector3(originalScale.x - .02f, originalScale.y + .02f, 1);
-        breathOutScale = new Vector3(originalScale.x + .02f, originalScale.y - .02f, 1);
+        breathInScale = new Vector3(originalScale.x - (float)scaleValue, originalScale.y + (float)scaleValue, 1);
+        breathOutScale = new Vector3(originalScale.x + (float)scaleValue, originalScale.y -(float)scaleValue, 1);
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class CharacterBreath : MonoBehaviour
         newPosition.y = transform.position.y + .01f * Time.deltaTime;
         transform.position = newPosition;
 
-        if(Math.Round(transform.localScale.x, 2) == 0.98)
+        if(Math.Round(transform.localScale.x, 2) == originalScale.x - scaleValue)
         {
             timeToBreathIn = false;
         }
@@ -56,7 +58,7 @@ public class CharacterBreath : MonoBehaviour
         newPosition.y = transform.position.y - .01f * Time.deltaTime;
         transform.position = newPosition;
 
-        if (Math.Round(transform.localScale.x, 2) == 1.02)
+        if (Math.Round(transform.localScale.x, 2) == originalScale.x + scaleValue)
         {
             timeToBreathIn = true;
         }
