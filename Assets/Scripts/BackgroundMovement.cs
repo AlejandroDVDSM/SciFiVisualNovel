@@ -9,7 +9,11 @@ public class BackgroundMovement : MonoBehaviour
     void Update()
     {
         worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log(worldPosition);
 
-        transform.eulerAngles = new Vector3(worldPosition.y, worldPosition.x, 0);
+        if (-worldPosition.y > -3.1 && -worldPosition.y < 6.7 && worldPosition.x > -9.8 && worldPosition.x < 9.6)
+        {
+            transform.eulerAngles = new Vector3(-worldPosition.y, worldPosition.x, 0);
+        }
     }
 }

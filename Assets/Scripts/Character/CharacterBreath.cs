@@ -8,9 +8,7 @@ public class CharacterBreath : MonoBehaviour
     private Vector3 newPosition;
 
     private double scaleValue;
-    private Vector3 originalScale;
-    private Vector3 breathInScale;
-    private Vector3 breathOutScale;
+    private Vector3 originalScale, breathInScale, breathOutScale;
 
     private Vector3 velocity = Vector3.zero;
     private float smoothTime = 1.5f;

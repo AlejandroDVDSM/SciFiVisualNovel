@@ -7,6 +7,7 @@ public class CharacterSize : MonoBehaviour
 {
     private TextMeshProUGUI characterName;
     private Vector3 originalPosition, newPosition;
+
     private void Start()
     {
         characterName = GameObject.FindGameObjectWithTag("CharacterName").GetComponent<TextMeshProUGUI>();
