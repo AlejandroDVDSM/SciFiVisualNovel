@@ -18,8 +18,8 @@ public class PlaceCharacter : MonoBehaviour
 
     private void Start()
     {
-        left = new Vector3(-5.36f, 0.11f, 0);
-        right = new Vector3(5.36f, 0.11f, 0);
+        left = new Vector3(-5.36f, 0, 0);
+        right = new Vector3(5.36f, 0, 0);
     }
 
     [YarnCommand("place")]
