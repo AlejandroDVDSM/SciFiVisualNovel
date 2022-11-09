@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -349665055041057038}
   - component: {fileID: -4794562429176997715}
   - component: {fileID: 4647344161301848321}
+  - component: {fileID: 7235898074060527906}
   m_Layer: 0
   m_Name: BabySaren
   m_TagString: Character
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1474c7af32be1a444823f1059d1f1d1c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,5 +127,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45ac9b4f0a42a1c4ca17d6586d2a9237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7235898074060527906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952918479983397917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a974647db889a4e81c2106450f281d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

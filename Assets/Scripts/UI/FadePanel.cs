@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
 
-public class Fade : MonoBehaviour
+public class FadePanel : MonoBehaviour, IFade
 {
     private Image panelImage;
 
@@ -14,7 +14,7 @@ public class Fade : MonoBehaviour
         panelImage = GetComponent<Image>();
     }
 
-    /*[YarnCommand("fadeinP")]
+    [YarnCommand("fadein")]
     public void FadeIn()
     {
         StartCoroutine(FadeInPanel());
@@ -46,5 +46,5 @@ public class Fade : MonoBehaviour
             panelImage.color = new Color(0, 0, 0, fadeAmount);
             yield return null;
         }
-    }*/
+    }
 }

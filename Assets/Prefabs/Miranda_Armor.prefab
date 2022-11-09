@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -343356959543382980}
   - component: {fileID: -7976126909405485322}
   - component: {fileID: -4376068107084601252}
+  - component: {fileID: 2638399627174904314}
   m_Layer: 0
   m_Name: Miranda_Armor
   m_TagString: Character
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3c213dd2a6f9464468900d61931f3502, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,5 +135,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45ac9b4f0a42a1c4ca17d6586d2a9237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2638399627174904314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67632744892439907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a974647db889a4e81c2106450f281d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

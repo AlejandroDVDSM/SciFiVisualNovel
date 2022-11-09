@@ -16,6 +16,7 @@ public class PlaceCharacter : MonoBehaviour
     private Vector3 left;
     private Vector3 right;
 
+
     private void Start()
     {
         left = new Vector3(-5.36f, 0, 0);
@@ -34,10 +35,12 @@ public class PlaceCharacter : MonoBehaviour
                 if (position == "left")
                 {
                     newCharacter = (GameObject)Instantiate(info.characterPrefab, left, transform.rotation);
+                    newCharacter.GetComponent<FadeCharacter>().FadeIn();
                     newCharacter.name = info.name;
                 } else if (position == "right")
                 {
                     newCharacter = (GameObject)Instantiate(info.characterPrefab, right, transform.rotation);
+                    newCharacter.GetComponent<FadeCharacter>().FadeIn();
                     newCharacter.name = info.name;
                 } else
                 {
@@ -63,6 +66,7 @@ public class PlaceCharacter : MonoBehaviour
         {
             if (character.name == characterName)
             {
+                character.GetComponent<FadeCharacter>().FadeIn();
                 Destroy(character);
                 break;
             }
