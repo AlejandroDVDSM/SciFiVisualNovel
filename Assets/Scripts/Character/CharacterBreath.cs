@@ -44,7 +44,9 @@ public class CharacterBreath : MonoBehaviour
         newPosition.y = transform.position.y + .01f * Time.deltaTime;
         transform.position = newPosition;
 
-        if(Math.Round(transform.localScale.x, 2) == originalScale.x - scaleValue)
+        var  currentScaleX = Math.Round(transform.localScale.x, 2);
+        var targetScaleX = originalScale.x - scaleValue;
+        if (currentScaleX == targetScaleX)
         {
             timeToBreathIn = false;
         }
@@ -56,7 +58,10 @@ public class CharacterBreath : MonoBehaviour
         newPosition.y = transform.position.y - .01f * Time.deltaTime;
         transform.position = newPosition;
 
-        if (Math.Round(transform.localScale.x, 2) == originalScale.x + scaleValue)
+        var currentScaleX = Math.Round(transform.localScale.x, 2);
+        var targetScaleX = originalScale.x + scaleValue;
+
+        if (currentScaleX == targetScaleX)
         {
             timeToBreathIn = true;
         }
