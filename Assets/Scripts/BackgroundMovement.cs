@@ -9,7 +9,7 @@ public class BackgroundMovement : MonoBehaviour
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        Debug.Log(mousePosition.y);
         if (IsInBoundsX() && IsInBoundsY())
         {
             transform.eulerAngles = new Vector3(-mousePosition.y, mousePosition.x, 0);
